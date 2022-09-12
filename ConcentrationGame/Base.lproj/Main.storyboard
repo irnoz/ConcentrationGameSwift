@@ -15,17 +15,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ya-IL-Vej">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ya-IL-Vej">
                                 <rect key="frame" x="55" y="761" width="304" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="5zl-G8-WM4"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CkU-db-ASp">
-                                <rect key="frame" x="216" y="44" width="80" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CkU-db-ASp">
+                                <rect key="frame" x="216" y="44" width="80" height="120"/>
                                 <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CkU-db-ASp" secondAttribute="height" multiplier="2:3" id="e04-Po-9bm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title=" "/>
@@ -33,10 +37,12 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DYk-Av-tdw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6F0-Mu-zm0">
-                                <rect key="frame" x="119" y="44" width="80" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6F0-Mu-zm0">
+                                <rect key="frame" x="119" y="44" width="80" height="120"/>
                                 <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6F0-Mu-zm0" secondAttribute="height" multiplier="2:3" id="kTH-db-MFm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title=" "/>
@@ -44,10 +50,12 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KRa-Wl-DEx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRl-h1-g0v">
-                                <rect key="frame" x="314" y="44" width="80" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRl-h1-g0v">
+                                <rect key="frame" x="314" y="44" width="80" height="120"/>
                                 <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XRl-h1-g0v" secondAttribute="height" multiplier="2:3" id="VKa-Wq-795"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title=" "/>
@@ -55,10 +63,13 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vgt-MU-mCS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wff-WR-OsK">
-                                <rect key="frame" x="20" y="44" width="80" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wff-WR-OsK">
+                                <rect key="frame" x="20" y="44" width="80" height="120"/>
                                 <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="FYG-Ar-iLe"/>
+                                    <constraint firstAttribute="width" secondItem="wff-WR-OsK" secondAttribute="height" multiplier="2:3" id="XQu-lN-G44"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title=" "/>
@@ -66,54 +77,12 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yVb-dE-uNu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6j-Aw-da0">
-                                <rect key="frame" x="215" y="161" width="80" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXL-Kc-Rrl">
+                                <rect key="frame" x="214" y="318" width="80" height="120"/>
                                 <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title=" "/>
-                                <connections>
-                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t5c-Hn-I4o"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGs-rU-agi">
-                                <rect key="frame" x="118" y="161" width="80" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title=" "/>
-                                <connections>
-                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TTf-x8-Q06"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17O-KY-ceL">
-                                <rect key="frame" x="313" y="161" width="80" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title=" "/>
-                                <connections>
-                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CJg-0A-tYh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dG-O3-3Zc">
-                                <rect key="frame" x="20" y="161" width="80" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title=" "/>
-                                <connections>
-                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OfI-YI-N5W"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXL-Kc-Rrl">
-                                <rect key="frame" x="215" y="279" width="80" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CXL-Kc-Rrl" secondAttribute="height" multiplier="2:3" id="Er1-hb-uBS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title=" "/>
@@ -121,10 +90,12 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3eZ-nP-e0s"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7A-gR-Npt">
-                                <rect key="frame" x="118" y="279" width="80" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7A-gR-Npt">
+                                <rect key="frame" x="117" y="318" width="80" height="120"/>
                                 <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="p7A-gR-Npt" secondAttribute="height" multiplier="2:3" id="pff-ZY-luR"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title=" "/>
@@ -132,10 +103,12 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Dn-4w-1uZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMR-mb-AgA">
-                                <rect key="frame" x="313" y="279" width="80" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMR-mb-AgA">
+                                <rect key="frame" x="312" y="318" width="80" height="120"/>
                                 <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nMR-mb-AgA" secondAttribute="height" multiplier="2:3" id="m0j-ql-dVL"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title=" "/>
@@ -143,10 +116,12 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UdD-uS-ZQo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfl-aK-URd">
-                                <rect key="frame" x="20" y="279" width="80" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfl-aK-URd">
+                                <rect key="frame" x="20" y="318" width="80" height="120"/>
                                 <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bfl-aK-URd" secondAttribute="height" multiplier="2:3" id="cvK-L4-VPx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title=" "/>
@@ -154,9 +129,106 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kkk-F7-aao"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6j-Aw-da0">
+                                <rect key="frame" x="214" y="181" width="80" height="120"/>
+                                <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="T6j-Aw-da0" secondAttribute="height" multiplier="2:3" id="z2w-mp-Bfg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title=" "/>
+                                <connections>
+                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t5c-Hn-I4o"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGs-rU-agi">
+                                <rect key="frame" x="117" y="181" width="80" height="120"/>
+                                <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MGs-rU-agi" secondAttribute="height" multiplier="2:3" id="ALE-el-FQw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title=" "/>
+                                <connections>
+                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TTf-x8-Q06"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17O-KY-ceL">
+                                <rect key="frame" x="312" y="181" width="80" height="120"/>
+                                <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="17O-KY-ceL" secondAttribute="height" multiplier="2:3" id="07f-TF-9nD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title=" "/>
+                                <connections>
+                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CJg-0A-tYh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dG-O3-3Zc">
+                                <rect key="frame" x="20" y="181" width="80" height="120"/>
+                                <color key="backgroundColor" red="0.94273954630000001" green="0.59589654209999998" blue="0.21554955840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7dG-O3-3Zc" secondAttribute="height" multiplier="2:3" id="7d7-Dq-KhX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="50"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title=" "/>
+                                <connections>
+                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OfI-YI-N5W"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CXL-Kc-Rrl" firstAttribute="baseline" secondItem="bfl-aK-URd" secondAttribute="baseline" id="3cr-Wh-hjx"/>
+                            <constraint firstItem="nMR-mb-AgA" firstAttribute="leading" secondItem="CXL-Kc-Rrl" secondAttribute="trailing" constant="18" id="4wN-gJ-qZ3"/>
+                            <constraint firstItem="6F0-Mu-zm0" firstAttribute="leading" secondItem="wff-WR-OsK" secondAttribute="trailing" constant="19" id="9EX-ue-R7g"/>
+                            <constraint firstItem="5ya-IL-Vej" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AXr-2g-jhr"/>
+                            <constraint firstItem="7dG-O3-3Zc" firstAttribute="top" secondItem="wff-WR-OsK" secondAttribute="bottom" constant="17" id="Bwu-Gx-gMp"/>
+                            <constraint firstItem="wff-WR-OsK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CdA-2k-4If"/>
+                            <constraint firstItem="wff-WR-OsK" firstAttribute="firstBaseline" secondItem="CkU-db-ASp" secondAttribute="firstBaseline" id="Egm-o5-UKq"/>
+                            <constraint firstItem="MGs-rU-agi" firstAttribute="firstBaseline" secondItem="17O-KY-ceL" secondAttribute="firstBaseline" id="GcW-ri-TUa"/>
+                            <constraint firstItem="wff-WR-OsK" firstAttribute="baseline" secondItem="6F0-Mu-zm0" secondAttribute="baseline" id="JB9-fg-CCN"/>
+                            <constraint firstItem="wff-WR-OsK" firstAttribute="top" secondItem="CkU-db-ASp" secondAttribute="top" id="JwX-Uj-1wa"/>
+                            <constraint firstItem="wff-WR-OsK" firstAttribute="top" secondItem="6F0-Mu-zm0" secondAttribute="top" id="KSq-S3-f0J"/>
+                            <constraint firstItem="wff-WR-OsK" firstAttribute="top" secondItem="XRl-h1-g0v" secondAttribute="top" id="N2M-QM-fVa"/>
+                            <constraint firstItem="5ya-IL-Vej" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="55" id="ONb-Jv-znt"/>
+                            <constraint firstItem="wff-WR-OsK" firstAttribute="firstBaseline" secondItem="XRl-h1-g0v" secondAttribute="firstBaseline" id="Rwn-3H-koW"/>
+                            <constraint firstItem="wff-WR-OsK" firstAttribute="trailing" secondItem="7dG-O3-3Zc" secondAttribute="trailing" id="SX5-RF-9PO"/>
+                            <constraint firstItem="wff-WR-OsK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Ssz-7U-Rlz"/>
+                            <constraint firstItem="MGs-rU-agi" firstAttribute="top" secondItem="T6j-Aw-da0" secondAttribute="top" id="Ubl-cT-eLI"/>
+                            <constraint firstItem="wff-WR-OsK" firstAttribute="firstBaseline" secondItem="6F0-Mu-zm0" secondAttribute="firstBaseline" id="UwL-Qk-BbI"/>
+                            <constraint firstItem="MGs-rU-agi" firstAttribute="leading" secondItem="7dG-O3-3Zc" secondAttribute="trailing" constant="17" id="VHP-97-8lD"/>
+                            <constraint firstItem="wff-WR-OsK" firstAttribute="leading" secondItem="7dG-O3-3Zc" secondAttribute="leading" id="W0O-Vv-5Sn"/>
+                            <constraint firstItem="CXL-Kc-Rrl" firstAttribute="firstBaseline" secondItem="p7A-gR-Npt" secondAttribute="firstBaseline" id="XVz-3R-v25"/>
+                            <constraint firstItem="MGs-rU-agi" firstAttribute="firstBaseline" secondItem="T6j-Aw-da0" secondAttribute="firstBaseline" id="YCK-Sr-Ca8"/>
+                            <constraint firstItem="MGs-rU-agi" firstAttribute="leading" secondItem="p7A-gR-Npt" secondAttribute="leading" id="YR8-d3-2vN"/>
+                            <constraint firstItem="17O-KY-ceL" firstAttribute="leading" secondItem="nMR-mb-AgA" secondAttribute="leading" id="Yci-5b-zs5"/>
+                            <constraint firstItem="MGs-rU-agi" firstAttribute="top" secondItem="17O-KY-ceL" secondAttribute="top" id="aDE-v2-gTa"/>
+                            <constraint firstItem="T6j-Aw-da0" firstAttribute="leading" secondItem="MGs-rU-agi" secondAttribute="trailing" constant="17" id="dYw-BX-YBl"/>
+                            <constraint firstItem="5ya-IL-Vej" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eCR-Fe-eIb"/>
+                            <constraint firstItem="wff-WR-OsK" firstAttribute="baseline" secondItem="CkU-db-ASp" secondAttribute="baseline" id="fxq-oK-bWF"/>
+                            <constraint firstItem="CXL-Kc-Rrl" firstAttribute="firstBaseline" secondItem="nMR-mb-AgA" secondAttribute="firstBaseline" id="lZo-ha-o4y"/>
+                            <constraint firstItem="CXL-Kc-Rrl" firstAttribute="top" secondItem="p7A-gR-Npt" secondAttribute="top" id="mND-j1-myk"/>
+                            <constraint firstItem="XRl-h1-g0v" firstAttribute="leading" secondItem="CkU-db-ASp" secondAttribute="trailing" constant="18" id="mct-Fy-he8"/>
+                            <constraint firstItem="CXL-Kc-Rrl" firstAttribute="leading" secondItem="T6j-Aw-da0" secondAttribute="leading" id="mdf-5g-gyZ"/>
+                            <constraint firstItem="CkU-db-ASp" firstAttribute="leading" secondItem="6F0-Mu-zm0" secondAttribute="trailing" constant="17" id="nod-vt-JoB"/>
+                            <constraint firstItem="MGs-rU-agi" firstAttribute="firstBaseline" secondItem="7dG-O3-3Zc" secondAttribute="firstBaseline" id="qEf-dG-KqW"/>
+                            <constraint firstItem="CXL-Kc-Rrl" firstAttribute="top" secondItem="nMR-mb-AgA" secondAttribute="top" id="qRn-P5-OIG"/>
+                            <constraint firstItem="MGs-rU-agi" firstAttribute="baseline" secondItem="T6j-Aw-da0" secondAttribute="baseline" id="s6t-Sb-Lxv"/>
+                            <constraint firstItem="p7A-gR-Npt" firstAttribute="top" secondItem="MGs-rU-agi" secondAttribute="bottom" constant="17" id="sgW-FT-kkc"/>
+                            <constraint firstItem="MGs-rU-agi" firstAttribute="baseline" secondItem="7dG-O3-3Zc" secondAttribute="baseline" id="tMg-iH-y22"/>
+                            <constraint firstItem="CXL-Kc-Rrl" firstAttribute="baseline" secondItem="p7A-gR-Npt" secondAttribute="baseline" id="uxA-zP-vQa"/>
+                            <constraint firstItem="MGs-rU-agi" firstAttribute="trailing" secondItem="p7A-gR-Npt" secondAttribute="trailing" id="vti-qN-aBX"/>
+                            <constraint firstItem="wff-WR-OsK" firstAttribute="leading" secondItem="bfl-aK-URd" secondAttribute="leading" id="w75-6g-Xyp"/>
+                            <constraint firstItem="MGs-rU-agi" firstAttribute="top" secondItem="7dG-O3-3Zc" secondAttribute="top" id="wtU-pp-YcN"/>
+                            <constraint firstItem="wff-WR-OsK" firstAttribute="trailing" secondItem="bfl-aK-URd" secondAttribute="trailing" id="zuk-zW-9wJ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="flipCountLable" destination="5ya-IL-Vej" id="f9s-xZ-MgP"/>
