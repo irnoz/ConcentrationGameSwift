@@ -69,14 +69,14 @@ struct Concentration
             let card = Card()
             cards += [card, card]
         }
-        // TODO: Shuffle the cards
+        // Shuffle the cards
         cards.shuffle()
     }
 }
 
 
 extension Collection {
-//    elemetn is just a generic type
+//    Elemetn is just a generic type
     var oneAndOnly: Element? {
         return count == 1 ? first : nil
     }
