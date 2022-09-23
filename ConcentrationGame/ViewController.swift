@@ -10,12 +10,12 @@ import UIKit
 class ViewController: UIViewController {
 
     private var arrayOfThemes: Array<Theme> = [
-            Theme(name: "halloween", emojis: "☠️🎃🤡👻🤖👽👹🦇", numberOfPairs: 8, color: #colorLiteral(red: 1, green: 0.5750193596, blue: 0.0009748883313, alpha: 1)),
-            Theme(name: "jobs", emojis: "👮‍♂️👷‍♀️💂‍♀️🕵️‍♀️👩‍⚕️👩‍🌾👩‍🍳👩‍🎓👨‍🎤👨‍🏫🧑‍🏭🧑‍💻👨‍💼👨‍🔧👩‍🔬🧑‍🎨🧑‍🚒🧑‍✈️👩‍🚀", numberOfPairs: 18.arc4random, color: #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)), // changed from Int.random(in: 5...18)
-            Theme(name: "faces", emojis: "😱🥶🥵🤯🤬😭🥺🥳🥸🤪😇😂", numberOfPairs: 8, color: #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)),
-            Theme(name: "animals", emojis: "🐶🐱🐭🦊🐻🐯🦁🐷🐸🐵🐵🐔🐧🐦", numberOfPairs: 8, color: #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)),
-            Theme(name: "organs", emojis: "👄🦷👅👂👃👀🫀🫁🧠", numberOfPairs: 8, color: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)),
-            Theme(name: "clothes", emojis: "🧥🥼🦺👕👖👔👙👘👠🧦🧣🎩", numberOfPairs: 8, color: #colorLiteral(red: 0.5791940689, green: 0.1280144453, blue: 0.5726861358, alpha: 1))
+            Theme(name: "Halloween", emojis: "☠️🎃🤡👻🤖👽👹🦇", numberOfPairs: 8, color: #colorLiteral(red: 1, green: 0.5750193596, blue: 0.0009748883313, alpha: 1)),
+            Theme(name: "Jobs", emojis: "👮‍♂️👷‍♀️💂‍♀️🕵️‍♀️👩‍⚕️👩‍🌾👩‍🍳👩‍🎓👨‍🎤👨‍🏫🧑‍🏭🧑‍💻👨‍💼👨‍🔧👩‍🔬🧑‍🎨🧑‍🚒🧑‍✈️👩‍🚀", numberOfPairs: 18.arc4random, color: #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)), // changed from Int.random(in: 5...18)
+            Theme(name: "Faces", emojis: "😱🥶🥵🤯🤬😭🥺🥳🥸🤪😇😂", numberOfPairs: 8, color: #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)),
+            Theme(name: "Animals", emojis: "🐶🐱🐭🦊🐻🐯🦁🐷🐸🐵🐵🐔🐧🐦", numberOfPairs: 8, color: #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)),
+            Theme(name: "Organs", emojis: "👄🦷👅👂👃👀🫀🫁🧠", numberOfPairs: 8, color: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)),
+            Theme(name: "Clothes", emojis: "🧥🥼🦺👕👖👔👙👘👠🧦🧣🎩", numberOfPairs: 8, color: #colorLiteral(red: 0.5791940689, green: 0.1280144453, blue: 0.5726861358, alpha: 1))
         ]
     
     private lazy var chosenTheme = arrayOfThemes.randomElement()!
@@ -42,16 +42,33 @@ class ViewController: UIViewController {
         }
     }
     
+    lazy var attributes: [NSAttributedString.Key: Any] = [
+        .strokeWidth : 5.0,
+        .strokeColor : chosenThemeColor
+    ]
+    
     private func updateFlipCountLabel() {
-        let attributes: [NSAttributedString.Key: Any] = [
-            .strokeWidth : 5.0,
-            .strokeColor : chosenThemeColor
-        ]
         let attributedString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
         flipCountLable.attributedText = attributedString
     }
+    private func updateThemeNameLabel() {
+        let attributedString = NSAttributedString(string: "Theme: \(chosenThemeName)", attributes: attributes)
+        themeNameLabel.attributedText = attributedString
+    }
+    private func updateRestartButton(_: Button) {
+//        let attributedString = NSAttributedString(string: "Restart", attributes: attributes)
+//        Button.setAttributedTitle(attributedString, for: .selected)
+        
+        
+    }
     
 //    IBOutlets and even actions are almost allways private
+    @IBOutlet private weak var themeNameLabel: UILabel! {
+        didSet {
+            updateThemeNameLabel()
+        }
+    }
+    
     @IBOutlet private weak var flipCountLable: UILabel! {
         didSet {
             updateFlipCountLabel()
@@ -74,6 +91,9 @@ class ViewController: UIViewController {
         } else {
             print("chosen card was not in cardButtons")
         }
+    }
+    @IBAction private func restartGame(_ sender: UIButton) {
+//        updateRestartButton(sender)
     }
     
     private func updateViewFromModel() {
