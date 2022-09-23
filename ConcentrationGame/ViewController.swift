@@ -77,9 +77,7 @@ class ViewController: UIViewController {
     
     @IBOutlet private var cardButtons: [UIButton]! {
         didSet {
-            for button in cardButtons{
-                button.backgroundColor = chosenThemeColor
-            }
+            updateCardTheme()
         }
     }
     
@@ -94,6 +92,41 @@ class ViewController: UIViewController {
     }
     @IBAction private func restartGame(_ sender: UIButton) {
 //        updateRestartButton(sender)
+        game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
+        choseNewTheme()
+        game.renewCardButtons()
+        updateCardTheme()
+        attributes = [
+            .strokeWidth : 5.0,
+            .strokeColor : chosenThemeColor
+        ]
+        updateFlipCountLabel()
+        updateThemeNameLabel()
+//        updateRestartButton() dont know what to send
+        updateCardButtons()
+    }
+    
+    private func updateCardButtons() {
+        for index in cardButtons.indices {
+            let button = cardButtons[index]
+            button.setTitle("", for: UIControl.State.normal)
+            button.backgroundColor = chosenThemeColor.withAlphaComponent(1.0)
+        }
+    }
+    
+    private func choseNewTheme() {
+        chosenTheme = arrayOfThemes.randomElement()!
+        
+        chosenThemeName = chosenTheme.name
+        chosenThemeEmojis = chosenTheme.emojis
+        chosenThemeAmountOfPairs = chosenTheme.numberOfPairs
+        chosenThemeColor = chosenTheme.color
+    }
+    
+    private func updateCardTheme() {
+        for button in cardButtons{
+            button.backgroundColor = chosenThemeColor
+        }
     }
     
     private func updateViewFromModel() {
