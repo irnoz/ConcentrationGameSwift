@@ -11,6 +11,8 @@ import Foundation
 struct Concentration
 {
     private(set) var cards = [Card]()
+    private var seenCards = Set<Int>()
+    var scoreCount: Int = 0
     
     private var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
@@ -46,8 +48,13 @@ struct Concentration
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
                 // check if cards match
                 if cards[matchIndex] == cards[index] {
+                    scoreCount += 2
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
+                } else {
+                    if alreadySeenCard(at: index) {
+                        scoreCount -= 1
+                    }
                 }
                 cards[index].isFaceUp = true
 //                indexOfOneAndOnlyFaceUpCard = nil this is no longer required
@@ -58,12 +65,28 @@ struct Concentration
 //                    cards[flipDownIndex].isFaceUp = false
 //                }
 //                cards[index].isFaceUp = true
+                if alreadySeenCard(at: index) {
+                    scoreCount -= 1
+                }
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }
     }
     
-    mutating func renewCardButtons() {
+    private mutating func alreadySeenCard(at index: Int) -> Bool{
+        if seenCards.contains(index) {
+            return true
+        } else {
+            seenCards.insert(index)
+            return false
+        }
+    }
+    
+    func getScoreCountFromModel() -> Int{
+        scoreCount
+    }
+    
+    mutating func updateCardsFromModel() {
         for index in cards.indices {
             cards[index].isMatched = false
             cards[index].isFaceUp = false

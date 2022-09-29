@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     private var arrayOfThemes: Array<Theme> = [
             Theme(name: "Halloween", emojis: "☠️🎃🤡👻🤖👽👹🦇", numberOfPairs: 8, color: #colorLiteral(red: 1, green: 0.5750193596, blue: 0.0009748883313, alpha: 1)),
@@ -20,11 +20,6 @@ class ViewController: UIViewController {
     
     private lazy var chosenTheme = arrayOfThemes.randomElement()!
     
-    private lazy var chosenThemeName = chosenTheme.name
-    private lazy var chosenThemeEmojis = chosenTheme.emojis
-    private lazy var chosenThemeAmountOfPairs = chosenTheme.numberOfPairs
-    private lazy var chosenThemeColor = chosenTheme.color
-    
     private lazy var game: Concentration =
         Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
     
@@ -36,43 +31,72 @@ class ViewController: UIViewController {
         return (cardButtons.count + 1) / 2
     }
     
-    private(set) var flipCount = 0 {
+     var scoreCount = 0 { // was private(set)
         didSet {
-            updateFlipCountLabel()
+            updateLabel(of: "Score count")
         }
     }
     
     lazy var attributes: [NSAttributedString.Key: Any] = [
         .strokeWidth : 5.0,
-        .strokeColor : chosenThemeColor
+        .strokeColor : chosenTheme.color,
     ]
     
-    private func updateFlipCountLabel() {
-        let attributedString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
-        flipCountLable.attributedText = attributedString
-    }
-    private func updateThemeNameLabel() {
-        let attributedString = NSAttributedString(string: "Theme: \(chosenThemeName)", attributes: attributes)
-        themeNameLabel.attributedText = attributedString
-    }
-    private func updateRestartButton(_: Button) {
-//        let attributedString = NSAttributedString(string: "Restart", attributes: attributes)
-//        Button.setAttributedTitle(attributedString, for: .selected)
-        
-        
+    private func updateLabel(of type: String) {
+        switch type {
+        case "Score count":
+            let attributedString = NSAttributedString(string: "Score: \(scoreCount)", attributes: attributes)
+            scoreCountLabel.attributedText = attributedString
+        case "Theme name":
+            let attributedString = NSAttributedString(string: "Theme: \(chosenTheme.name)", attributes: attributes)
+            themeNameLabel.attributedText = attributedString
+        case "Restart button":
+            let attributedString = NSAttributedString(string: "Restart", attributes: attributes)
+            restartLabel.attributedText = attributedString
+        default:
+            print("chosen label type does not exist")
+        }
     }
     
 //    IBOutlets and even actions are almost allways private
     @IBOutlet private weak var themeNameLabel: UILabel! {
         didSet {
-            updateThemeNameLabel()
+            updateLabel(of: "Theme name")
         }
     }
     
-    @IBOutlet private weak var flipCountLable: UILabel! {
+    @IBOutlet private weak var scoreCountLabel: UILabel! {
         didSet {
-            updateFlipCountLabel()
+            updateLabel(of: "Score count")
         }
+    }
+    
+    @IBOutlet private weak var restartLabel: UILabel! {
+        didSet {
+            updateLabel(of: "Restart button")
+            
+            let tap = UITapGestureRecognizer(target: self, action: #selector(restartGame))
+            
+            restartLabel.isUserInteractionEnabled = true
+            restartLabel.addGestureRecognizer(tap)
+            tap.delegate = self
+            
+        }
+    }
+    @objc private func restartGame(_ sender: UITapGestureRecognizer) {
+        game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
+        game.updateCardsFromModel()
+        choseNewTheme()
+        updateCardTheme()
+        attributes = [
+            .strokeWidth : 5.0,
+            .strokeColor : chosenTheme.color
+        ]
+        scoreCount = 0
+        updateLabel(of: "Theme name")
+        updateLabel(of: "Score count")
+        updateLabel(of: "Restart button")
+        updateCardButtons()
     }
     
     @IBOutlet private var cardButtons: [UIButton]! {
@@ -82,50 +106,32 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func touchCard(_ sender: UIButton) {
-        flipCount += 1
         if let cardNumber = cardButtons.firstIndex(of: sender) {
             game.choseCard(at: cardNumber)
             updateViewFromModel()
         } else {
             print("chosen card was not in cardButtons")
         }
-    }
-    @IBAction private func restartGame(_ sender: UIButton) {
-//        updateRestartButton(sender)
-        game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
-        choseNewTheme()
-        game.renewCardButtons()
-        updateCardTheme()
-        attributes = [
-            .strokeWidth : 5.0,
-            .strokeColor : chosenThemeColor
-        ]
-        updateFlipCountLabel()
-        updateThemeNameLabel()
-//        updateRestartButton() dont know what to send
-        updateCardButtons()
+        
+        scoreCount = game.getScoreCountFromModel()
+        updateLabel(of: "Score count")
     }
     
     private func updateCardButtons() {
         for index in cardButtons.indices {
             let button = cardButtons[index]
             button.setTitle("", for: UIControl.State.normal)
-            button.backgroundColor = chosenThemeColor.withAlphaComponent(1.0)
+            button.backgroundColor = chosenTheme.color.withAlphaComponent(1.0)
         }
     }
     
     private func choseNewTheme() {
         chosenTheme = arrayOfThemes.randomElement()!
-        
-        chosenThemeName = chosenTheme.name
-        chosenThemeEmojis = chosenTheme.emojis
-        chosenThemeAmountOfPairs = chosenTheme.numberOfPairs
-        chosenThemeColor = chosenTheme.color
     }
     
     private func updateCardTheme() {
         for button in cardButtons{
-            button.backgroundColor = chosenThemeColor
+            button.backgroundColor = chosenTheme.color
         }
     }
     
@@ -135,7 +141,7 @@ class ViewController: UIViewController {
             let card = game.cards[index]
             if card.isFaceUp && card.isMatched {
                 button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = chosenThemeColor.withAlphaComponent(0.15)
+                button.backgroundColor = chosenTheme.color.withAlphaComponent(0.15)
                 continue
             }
             else if card.isFaceUp {
@@ -143,20 +149,17 @@ class ViewController: UIViewController {
                 button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             } else {
                 button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = card.isMatched ? chosenThemeColor.withAlphaComponent(0.15) : chosenThemeColor
+                button.backgroundColor = card.isMatched ? chosenTheme.color.withAlphaComponent(0.15) : chosenTheme.color
             }
         }
     }
     
-//    private var emojiChoices = ["🎃", "🦁", "🐵", "👻","🐱"]
-//    private var emojiChoices = "🎃🦁🐵👻🐱🦄😱🧟‍♂️"
-    
     private var emoji = [Card:String]()
     
     private func emoji(for card: Card) -> String {
-        if emoji[card] == nil, chosenThemeEmojis.count > 0 {
-            let randomStringIndex = chosenThemeEmojis.index(chosenThemeEmojis.startIndex, offsetBy: chosenThemeEmojis.count.arc4random)
-            emoji[card] = String(chosenThemeEmojis.remove(at: randomStringIndex))
+        if emoji[card] == nil, chosenTheme.emojis.count > 0 {
+            let randomStringIndex = chosenTheme.emojis.index(chosenTheme.emojis.startIndex, offsetBy: chosenTheme.emojis.count.arc4random)
+            emoji[card] = String(chosenTheme.emojis.remove(at: randomStringIndex))
         }
         return emoji[card] ?? "?"
 //        below code is the same as line above
